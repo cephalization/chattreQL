@@ -1,2 +1,11 @@
 # chattreQL
-Barebones chat app to learn GraphQL and its ecosystem. Using React and Tailwind to make things easy on myself.
+
+Barebones chat app to learn GraphQL and its ecosystem.
+
+- React w/ apollo frontend
+- NestJS w/ graphQL api
+
+## Tools
+
+- yarn
+- turborepo
