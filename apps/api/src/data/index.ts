@@ -1,5 +1,2 @@
-import { messages } from "./message";
-
-export const sources = {
-  messages,
-};
+export { messages } from "./message";
+export { users } from "./user";
