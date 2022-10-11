@@ -1,22 +1,15 @@
-import { json, urlencoded } from "body-parser";
-import express from "express";
-import morgan from "morgan";
-import cors from "cors";
+import { ApolloServer } from "apollo-server";
+
+import { resolvers } from "./resolvers";
+import { typeDefs } from "./typeDefs";
 
 export const createServer = () => {
-  const app = express();
-  app
-    .disable("x-powered-by")
-    .use(morgan("dev"))
-    .use(urlencoded({ extended: true }))
-    .use(json())
-    .use(cors())
-    .get("/message/:name", (req, res) => {
-      return res.json({ message: `hello ${req.params.name}` });
-    })
-    .get("/healthz", (req, res) => {
-      return res.json({ ok: true });
-    });
+  const server = new ApolloServer({
+    typeDefs,
+    csrfPrevention: true,
+    cache: "bounded",
+    resolvers,
+  });
 
-  return app;
+  return server;
 };

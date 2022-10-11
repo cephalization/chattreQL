@@ -3,7 +3,7 @@
 Barebones chat app to learn GraphQL and its ecosystem.
 
 - React w/ apollo frontend
-- NestJS w/ graphQL api
+- Apollo Server node API
 
 ## Tools
 
