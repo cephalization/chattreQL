@@ -25,6 +25,9 @@
       ],
       "outputs": []
     },
+    "typecheck": {
+      "cache": false
+    },
     "dev": {
       "cache": false
     },
