@@ -1,33 +1,40 @@
 export type Message = {
-  id: number;
-  author: number;
+  id: string;
   content: string;
 };
 
-export const messages: Message[] = [
-  {
-    id: 1,
-    author: 1,
-    content: "hello world",
-  },
-  {
-    id: 2,
-    author: 2,
-    content: "hello, I am hannah",
-  },
-  {
-    id: 3,
-    author: 3,
-    content: "hello, I am benny",
-  },
-  {
-    id: 4,
-    author: 1,
-    content: "hi hannah",
-  },
-  {
-    id: 5,
-    author: 1,
-    content: "hi benny",
-  },
-];
+export type MessageFull = Message & {
+  author: string;
+};
+
+// there will be mutation race conditions until I transition to a real data source
+export const dataSource: { nextId: number; messages: MessageFull[] } = {
+  nextId: 6,
+  messages: [
+    {
+      id: "1",
+      author: "1",
+      content: "hello world",
+    },
+    {
+      id: "2",
+      author: "2",
+      content: "hello, I am hannah",
+    },
+    {
+      id: "3",
+      author: "3",
+      content: "hello, I am benny",
+    },
+    {
+      id: "4",
+      author: "1",
+      content: "hi hannah",
+    },
+    {
+      id: "5",
+      author: "1",
+      content: "hi benny",
+    },
+  ],
+};

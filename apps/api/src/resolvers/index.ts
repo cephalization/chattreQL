@@ -1,4 +1,9 @@
-import { messages, userMessages } from "./message";
+import {
+  messages,
+  userMessages,
+  createMessageMutation,
+  removeMessageMutation,
+} from "./message";
 import { messageAuthor, users } from "./user";
 
 export const resolvers = {
@@ -6,10 +11,14 @@ export const resolvers = {
     messages,
     users,
   },
-  User: {
+  Mutation: {
+    createMessage: createMessageMutation,
+    removeMessage: removeMessageMutation,
+  },
+  UserFull: {
     messages: userMessages,
   },
-  Message: {
+  MessageFull: {
     author: messageAuthor,
   },
 };
