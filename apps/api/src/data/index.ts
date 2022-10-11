@@ -1,5 +1,5 @@
-import { message } from "./message";
+import { messages } from "./message";
 
 export const sources = {
-  message,
+  messages,
 };
