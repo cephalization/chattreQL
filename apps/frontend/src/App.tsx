@@ -4,7 +4,9 @@ import "./App.css";
 function App() {
   return (
     <div className="container">
-      <h1 className="title">ChattreQL</h1>
+      <h1 className="title">
+        <span>ChattreQL</span>
+      </h1>
       <p className="description">
         Built With <a href="https://turborepo.org/">Turborepo</a> +{" "}
         <a href="https://vitejs.dev/">Vite</a>
