@@ -16,7 +16,7 @@ const Login = ({ selectedUser, setSelectedUser }: LoginProps) => {
         onChange={(e) => setSelectedUser(e.currentTarget.value)}
         value={selectedUser}
       />
-      <p className="description">
+      <p className="description mt-2">
         Built With <a href="https://turborepo.org/">Turborepo</a> +{" "}
         <a href="https://vitejs.dev/">Vite</a>
       </p>

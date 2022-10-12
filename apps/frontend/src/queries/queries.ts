@@ -9,6 +9,15 @@ export const GET_USERS = gql`
   }
 `;
 
+export const GET_USER = gql`
+  query GetUserQuery($id: ID!) {
+    users(id: $id) {
+      id
+      name
+    }
+  }
+`;
+
 export const GET_MESSAGES = gql`
   query MessageQuery {
     messages {
