@@ -28,3 +28,15 @@ export const CREATE_MESSAGE = gql`
     }
   }
 `;
+
+export const SUBSCRIBE_GET_MESSAGES = gql`
+  subscription MessageSubscription {
+    messageCreated {
+      id
+      content
+      author {
+        name
+      }
+    }
+  }
+`;

@@ -14,9 +14,7 @@ const ConnectedChatBar = ({
   selectedUser,
   ...props
 }: ConnectedChatBarProps) => {
-  const [createMessage, { loading, error }] = useMutation(CREATE_MESSAGE, {
-    refetchQueries: ["MessageQuery"],
-  });
+  const [createMessage, { loading, error }] = useMutation(CREATE_MESSAGE);
   const onSubmit = React.useCallback(
     (content: string) => {
       return createMessage({ variables: { author: selectedUser, content } });
