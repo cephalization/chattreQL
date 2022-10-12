@@ -5,6 +5,8 @@ import {
   type MessageInternal,
 } from "../data";
 import { type User } from "../typeDefs";
+import { EVENTS } from "../events";
+import { pubsub } from "./pubsub";
 
 type MessageParents = UserInternal | null;
 type MessageArgs = {
@@ -41,6 +43,9 @@ export const userMessages = (
   }
 };
 
+export const messageCreatedPubSub = () =>
+  pubsub.asyncIterator([EVENTS.MESSAGE_CREATED]);
+
 export const createMessageMutation = (
   _: MessageParents,
   args: { author: User["id"]; content: MessageInternal["content"] }
@@ -59,6 +64,8 @@ export const createMessageMutation = (
 
   MessageDataSource.messages.push(newMessage);
   MessageDataSource.nextId = MessageDataSource.nextId + 1;
+
+  pubsub.publish(EVENTS.MESSAGE_CREATED, { messageCreated: newMessage });
 
   return newMessage;
 };

@@ -30,6 +30,10 @@ export const typeDefs = gql`
     users(id: ID): [User]
   }
 
+  type Subscription {
+    messageCreated: Message
+  }
+
   type Mutation {
     createMessage(author: ID!, content: String!): Message
     removeMessage(id: ID!): Message
