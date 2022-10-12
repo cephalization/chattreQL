@@ -1,25 +1,17 @@
 import * as React from "react";
 import "./App.css";
-import UserSelector from "./components/UserSelector";
+import Login from "./views/Login";
 
 function App() {
   const [selectedUser, setSelectedUser] = React.useState<undefined | string>();
 
-  console.log(selectedUser);
+  if (selectedUser) {
+    return <div className="container">Hi User {selectedUser}!</div>;
+  }
 
   return (
     <div className="container">
-      <h1 className="title">
-        <span>ChattreQL</span>
-      </h1>
-      <UserSelector
-        onChange={(e) => setSelectedUser(e.currentTarget.value)}
-        value={selectedUser}
-      />
-      <p className="description">
-        Built With <a href="https://turborepo.org/">Turborepo</a> +{" "}
-        <a href="https://vitejs.dev/">Vite</a>
-      </p>
+      <Login selectedUser={selectedUser} setSelectedUser={setSelectedUser} />
     </div>
   );
 }
