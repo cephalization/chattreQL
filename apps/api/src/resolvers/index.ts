@@ -15,10 +15,10 @@ export const resolvers = {
     createMessage: createMessageMutation,
     removeMessage: removeMessageMutation,
   },
-  UserFull: {
+  User: {
     messages: userMessages,
   },
-  MessageFull: {
+  Message: {
     author: messageAuthor,
   },
 };

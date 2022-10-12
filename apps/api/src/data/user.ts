@@ -1,13 +1,10 @@
-export type User = {
+export type UserInternal = {
   id: string;
   name: string;
-};
-
-export type UserFull = User & {
   messages: string[];
 };
 
-export const dataSource: { nextId: number; users: UserFull[] } = {
+export const dataSource: { nextId: number; users: UserInternal[] } = {
   nextId: 4,
   users: [
     {

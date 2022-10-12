@@ -1,14 +1,11 @@
-export type Message = {
+export type MessageInternal = {
   id: string;
   content: string;
-};
-
-export type MessageFull = Message & {
   author: string;
 };
 
 // there will be mutation race conditions until I transition to a real data source
-export const dataSource: { nextId: number; messages: MessageFull[] } = {
+export const dataSource: { nextId: number; messages: MessageInternal[] } = {
   nextId: 6,
   messages: [
     {

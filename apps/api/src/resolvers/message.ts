@@ -1,19 +1,21 @@
 import {
   MessageDataSource,
   UserDataSource,
-  type Message,
-  type MessageFull,
-  type User,
-  type UserFull,
+  type UserInternal,
+  type MessageInternal,
 } from "../data";
+import { type User } from "../typeDefs";
 
-type MessageParents = UserFull | null;
+type MessageParents = UserInternal | null;
 type MessageArgs = {
-  id?: Message["id"];
-  userId?: User["id"];
+  id?: string;
+  userId?: string;
 };
 
-export const messages = (_: MessageParents, args: MessageArgs) => {
+export const messages = (
+  _: MessageParents,
+  args: MessageArgs
+): MessageInternal[] => {
   if (args.userId) {
     return MessageDataSource.messages.filter(
       (message) => message.author === args.userId
@@ -29,7 +31,9 @@ export const messages = (_: MessageParents, args: MessageArgs) => {
   return MessageDataSource.messages;
 };
 
-export const userMessages = (parent: MessageParents) => {
+export const userMessages = (
+  parent: MessageParents
+): MessageInternal[] | undefined => {
   if (parent) {
     return MessageDataSource.messages.filter(
       (message) => message.author === parent.id
@@ -39,15 +43,15 @@ export const userMessages = (parent: MessageParents) => {
 
 export const createMessageMutation = (
   _: MessageParents,
-  args: { author: User["id"]; content: Message["content"] }
-) => {
+  args: { author: User["id"]; content: MessageInternal["content"] }
+): MessageInternal => {
   const author = UserDataSource.users.find((u) => u.id === args.author);
 
   if (!author) {
     throw new Error("The author no longer exists. Cannot send message.");
   }
 
-  const newMessage: MessageFull = {
+  const newMessage: MessageInternal = {
     id: MessageDataSource.nextId.toString(),
     author: args.author,
     content: args.content,
@@ -61,8 +65,8 @@ export const createMessageMutation = (
 
 export const removeMessageMutation = (
   _: MessageParents,
-  args: { id: Message["id"] }
-): Message | undefined => {
+  args: { id: MessageInternal["id"] }
+): MessageInternal | undefined => {
   const message = MessageDataSource.messages.find((m) => m.id === args.id);
 
   MessageDataSource.messages = MessageDataSource.messages.filter(

@@ -1,9 +1,12 @@
-import { UserDataSource, type Message } from "../data";
-import { MessageFull } from "../data/message";
+import {
+  type MessageInternal,
+  UserDataSource,
+  type UserInternal,
+} from "../data";
 
-type UserParents = MessageFull | null;
+type UserParents = MessageInternal | null;
 type UserArgs = {
-  id?: Message["id"];
+  id?: string;
 };
 
 /**
@@ -13,7 +16,7 @@ type UserArgs = {
  * @param parent
  * @returns
  */
-export const users = (_: UserParents, args: UserArgs) => {
+export const users = (_: UserParents, args: UserArgs): UserInternal[] => {
   if (args.id) {
     return UserDataSource.users.filter((user) => user.id === args.id);
   }
@@ -27,7 +30,9 @@ export const users = (_: UserParents, args: UserArgs) => {
  * @param parent
  * @returns
  */
-export const messageAuthor = (parent: UserParents) => {
+export const messageAuthor = (
+  parent: UserParents
+): UserInternal | undefined => {
   if (parent) {
     return UserDataSource.users.find((user) => parent.author === user.id);
   }

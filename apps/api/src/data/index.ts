@@ -1,6 +1,5 @@
 export {
   dataSource as MessageDataSource,
-  type Message,
-  type MessageFull,
+  type MessageInternal,
 } from "./message";
-export { dataSource as UserDataSource, type User, type UserFull } from "./user";
+export { dataSource as UserDataSource, type UserInternal } from "./user";

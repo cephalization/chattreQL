@@ -1,40 +1,37 @@
 import { gql } from "apollo-server-express";
 
+export type User = {
+  id: string;
+  name: string;
+  messages: Message[];
+};
+
+export type Message = {
+  id: string;
+  content: string;
+  author: User;
+};
+
 export const typeDefs = gql`
-  interface Message {
+  type Message {
     id: ID!
     content: String!
+    author: User!
   }
 
-  type MessageBase implements Message {
-    id: ID!
-    content: String!
-  }
-
-  type MessageFull implements Message {
-    id: ID!
-    content: String!
-    author: UserFull!
-  }
-
-  interface User {
+  type User {
     id: ID!
     name: String
-  }
-
-  type UserFull implements User {
-    id: ID!
-    name: String
-    messages: [MessageFull]
+    messages: [Message]
   }
 
   type Query {
-    messages(id: ID, userId: ID): [MessageFull]
-    users(id: ID): [UserFull]
+    messages(id: ID, userId: ID): [Message]
+    users(id: ID): [User]
   }
 
   type Mutation {
-    createMessage(author: ID!, content: String!): MessageBase
-    removeMessage(id: ID!): MessageBase
+    createMessage(author: ID!, content: String!): Message
+    removeMessage(id: ID!): Message
   }
 `;
