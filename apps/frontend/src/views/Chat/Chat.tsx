@@ -9,8 +9,10 @@ type ChatProps = {
 const Chat = ({ selectedUser }: ChatProps) => {
   return (
     <div className="w-96 space-y-4">
-      <ConnectedMessages />
-      <ConnectedChatBar />
+      <div className="flex flex-col-reverse h-96 overflow-y-auto">
+        <ConnectedMessages />
+      </div>
+      <ConnectedChatBar selectedUser={selectedUser} />
     </div>
   );
 };

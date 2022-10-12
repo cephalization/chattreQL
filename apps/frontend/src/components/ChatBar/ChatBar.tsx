@@ -8,26 +8,29 @@ export type ChatBarProps = {
     input?: string;
     submitButton?: string;
   };
-  onSubmit: (content: string) => Promise<{ success: boolean }>;
+  loading: boolean;
+  error?: string;
+  onSubmit: (
+    content: string
+  ) => Promise<{ data?: { createMessage?: { id: string } } }>;
 };
 
-const ChatBar = ({ onSubmit, className, classes = {} }: ChatBarProps) => {
+const ChatBar = ({
+  onSubmit,
+  className,
+  classes = {},
+  error,
+  loading,
+}: ChatBarProps) => {
   const [value, setValue] = React.useState("");
-  const [loading, setLoading] = React.useState(false);
-  const [error, setError] = React.useState(false);
   const handleSubmission = React.useCallback(
     async (e: React.FormEvent) => {
       e.preventDefault();
       if (value) {
-        setLoading(true);
-        const status = await onSubmit(value);
-        setLoading(false);
-
-        if (status.success) {
+        const result = await onSubmit(value);
+        if (result?.data?.createMessage?.id) {
           setValue("");
         }
-
-        setError(!status.success);
       }
     },
     [onSubmit, value]

@@ -20,3 +20,11 @@ export const GET_MESSAGES = gql`
     }
   }
 `;
+
+export const CREATE_MESSAGE = gql`
+  mutation CreateMessage($author: ID!, $content: String!) {
+    createMessage(author: $author, content: $content) {
+      id
+    }
+  }
+`;
