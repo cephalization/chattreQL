@@ -1,5 +1,5 @@
+import clsx from "clsx";
 import * as React from "react";
-import "./messages.css";
 
 export type MessagesProps = {
   className?: string;
@@ -14,7 +14,7 @@ export type MessagesProps = {
 
 const Messages = ({ messages, className }: MessagesProps) => {
   return (
-    <ul className={className}>
+    <ul className={clsx(className, "border-l-4 pl-2 border-blue-50")}>
       {messages.map((m) => (
         <li key={m.id} className="flex w-full gap-1 items-center">
           <p className="flex w-12 text-sm mr-4">{m.author.name}</p>
