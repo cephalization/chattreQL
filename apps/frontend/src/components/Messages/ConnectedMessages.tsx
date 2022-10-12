@@ -2,9 +2,11 @@ import * as React from "react";
 import { useQuery } from "@apollo/client";
 
 import { GET_MESSAGES } from "../../queries/queries";
-import Messages from "./Messages";
+import Messages, { type MessagesProps } from "./Messages";
 
-const ConnectedMessages = () => {
+type ConnectedMessagesProps = Omit<MessagesProps, "messages">;
+
+const ConnectedMessages = (props: ConnectedMessagesProps) => {
   const { loading, data, error } = useQuery(GET_MESSAGES);
 
   if (loading) {
@@ -19,7 +21,7 @@ const ConnectedMessages = () => {
     );
   }
 
-  return <Messages messages={data.messages} />;
+  return <Messages messages={data.messages} {...props} />;
 };
 
 export default ConnectedMessages;

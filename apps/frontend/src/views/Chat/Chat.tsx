@@ -1,4 +1,5 @@
 import * as React from "react";
+import ConnectedChatBar from "../../components/ChatBar";
 import ConnectedMessages from "../../components/Messages";
 
 type ChatProps = {
@@ -7,8 +8,9 @@ type ChatProps = {
 
 const Chat = ({ selectedUser }: ChatProps) => {
   return (
-    <div>
+    <div className="w-96 space-y-4">
       <ConnectedMessages />
+      <ConnectedChatBar />
     </div>
   );
 };

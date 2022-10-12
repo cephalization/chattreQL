@@ -1,7 +1,8 @@
 import * as React from "react";
 import "./messages.css";
 
-type MessagesProps = {
+export type MessagesProps = {
+  className?: string;
   messages: {
     id: string;
     content: string;
@@ -11,9 +12,9 @@ type MessagesProps = {
   }[];
 };
 
-const Messages = ({ messages }: MessagesProps) => {
+const Messages = ({ messages, className }: MessagesProps) => {
   return (
-    <ul>
+    <ul className={className}>
       {messages.map((m) => (
         <li key={m.id} className="flex w-full gap-1 items-center">
           <p className="flex w-12 text-sm mr-4">{m.author.name}</p>
