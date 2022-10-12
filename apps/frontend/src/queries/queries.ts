@@ -8,3 +8,15 @@ export const GET_USERS = gql`
     }
   }
 `;
+
+export const GET_MESSAGES = gql`
+  query MessageQuery {
+    messages {
+      id
+      content
+      author {
+        name
+      }
+    }
+  }
+`;
