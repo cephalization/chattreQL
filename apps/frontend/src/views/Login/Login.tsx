@@ -8,7 +8,7 @@ type LoginProps = {
 
 const Login = ({ selectedUser, setSelectedUser }: LoginProps) => {
   return (
-    <div>
+    <div className="flex flex-col h-screen items-center justify-center">
       <h1 className="title">
         <span>ChattreQL</span>
       </h1>

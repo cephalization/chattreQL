@@ -1,5 +1,6 @@
 import * as React from "react";
 import "./App.css";
+import Container from "./components/Container";
 import Chat from "./views/Chat";
 import Login from "./views/Login";
 
@@ -8,16 +9,16 @@ function App() {
 
   if (selectedUser) {
     return (
-      <div className="container">
+      <Container>
         <Chat selectedUser={selectedUser} />
-      </div>
+      </Container>
     );
   }
 
   return (
-    <div className="container">
+    <Container>
       <Login selectedUser={selectedUser} setSelectedUser={setSelectedUser} />
-    </div>
+    </Container>
   );
 }
 

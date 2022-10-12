@@ -42,7 +42,7 @@ const ChatBar = ({
         className,
         classes.container,
         error && "",
-        "flex shadow-sm shadow-blue-300 rounded-sm items-center py-2 px-2 justify-between"
+        "flex w-full shadow-sm shadow-blue-300 rounded-sm items-center py-2 px-2 justify-between"
       )}
       onSubmit={handleSubmission}
     >
