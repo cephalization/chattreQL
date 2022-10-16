@@ -28,7 +28,27 @@ The top level of the workspace supports some turbo/yarn workspace commands
 - Format code with prettier
   - `yarn format`
 
-Each sub app or package will support a subset or all of these commands.
+Each sub app or package will support a subset of these commands.
+
+# Adding new apps/packages to the Monorepo
+
+Apps
+
+- App creation is very close to a normal app initialization. The main differences live in package.json, namely that imports from other places in the monorepo can have a version of '\*'.
+- I usually just copy examples from turborepo and then tweak from there to use my own internal packages
+  - https://github.com/vercel/turborepo/tree/main/examples
+
+Packages
+
+- The packages in this repo are more than likely only going to be internal
+
+  - The process described here sets up internal packages to be built/bundled
+    by the importing app/package
+  - https://turborepo.org/docs/handbook/sharing-code/internal-packages
+
+- External packages are configured similarly to apps, and are built before import
+
+  - https://turborepo.org/docs/handbook/publishing-packages/bundling
 
 ## Tools
 
