@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client";
 import * as React from "react";
 
-import { GET_USERS } from "../../queries/queries";
+import { GET_USERS } from "graphql-queries";
 import UserSelector, { type UserSelectorProps } from "./UserSelector";
 
 const ConnectedUserSelector = (props: Omit<UserSelectorProps, "users">) => {

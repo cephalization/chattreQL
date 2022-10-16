@@ -1,7 +1,7 @@
 import * as React from "react";
 import { useQuery } from "@apollo/client";
 
-import { GET_MESSAGES, SUBSCRIBE_GET_MESSAGES } from "../../queries/queries";
+import { GET_MESSAGES, SUBSCRIBE_GET_MESSAGES } from "graphql-queries";
 import Messages, { type MessagesProps } from "./Messages";
 
 type ConnectedMessagesProps = Omit<MessagesProps, "messages">;

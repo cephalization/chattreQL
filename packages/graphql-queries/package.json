@@ -1,11 +1,10 @@
 {
-  "name": "apollo-client-custom",
+  "name": "graphql-queries",
   "version": "0.0.0",
   "private": true,
   "main": "./src/index.ts",
   "types": "./src/index.ts",
   "dependencies": {
-    "@apollo/client": "latest",
-    "graphql-ws": "latest"
+    "@apollo/client": "latest"
   }
 }

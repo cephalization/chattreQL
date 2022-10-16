@@ -1,6 +1,6 @@
 import { useMutation, useQuery } from "@apollo/client";
 import * as React from "react";
-import { CREATE_MESSAGE, GET_USER } from "../../queries/queries";
+import { CREATE_MESSAGE, GET_USER } from "graphql-queries";
 import ChatBar, { type ChatBarProps } from "./ChatBar";
 
 type ConnectedChatBarProps = Omit<
