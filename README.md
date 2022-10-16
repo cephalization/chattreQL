@@ -25,6 +25,8 @@ The top level of the workspace supports some turbo/yarn workspace commands
   - `yarn lint`
 - Clean build artifacts for all apps and packages
   - `yarn clean`
+- Format code with prettier
+  - `yarn format`
 
 Each sub app or package will support a subset or all of these commands.
 
