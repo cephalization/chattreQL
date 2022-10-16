@@ -1,0 +1,11 @@
+{
+  "name": "apollo-client-custom",
+  "version": "0.0.0",
+  "private": true,
+  "main": "./src/index.ts",
+  "types": "./src/index.ts",
+  "dependencies": {
+    "@apollo/client": "^3.7.0",
+    "graphql-ws": "^5.11.2"
+  }
+}

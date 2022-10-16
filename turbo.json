@@ -13,6 +13,16 @@
         "^build"
       ]
     },
+    "frontend-nextjs#build": {
+      "env": [
+        "NEXT_PUBLIC_API_URI"
+      ]
+    },
+    "frontend#build": {
+      "env": [
+        "VITE_API_URI"
+      ]
+    },
     "test": {
       "outputs": [
         "coverage/**"

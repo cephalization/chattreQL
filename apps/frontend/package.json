@@ -13,6 +13,7 @@
   "dependencies": {
     "@apollo/client": "^3.7.0",
     "@heroicons/react": "^2.0.12",
+    "apollo-client-custom": "*",
     "clsx": "^1.2.1",
     "graphql": "^16.6.0",
     "graphql-ws": "^5.11.2",
